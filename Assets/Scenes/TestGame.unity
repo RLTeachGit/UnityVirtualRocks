@@ -381,7 +381,7 @@ MonoBehaviour:
   - {fileID: 1369709980487946, guid: 865ee6e85689946849e3562759a0d106, type: 2}
   - {fileID: 1369709980487946, guid: 7650c2e85d73e8748b0223c33096f432, type: 2}
   - {fileID: 1369709980487946, guid: 5d2b791586ed1a8488a3fc36572765e0, type: 2}
-  BulletPrefab: {fileID: 1408154852607706, guid: 35ebc120f47b246468f0f24f332402a8,
+  BulletPrefab: {fileID: 1408154852607706, guid: a046fc9bd108b42348b44c970fbfd04b,
     type: 2}
 --- !u!4 &961751084
 Transform:
