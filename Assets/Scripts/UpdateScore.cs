@@ -13,6 +13,8 @@ public class UpdateScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        mScore.text = string.Format("Score:{0}", GM.singleton.MyScore);
-	}
+        if(GM.singleton != null) {
+            mScore.text = string.Format("Score:{0}", GM.singleton.MyScore);
+        }
+    }
 }

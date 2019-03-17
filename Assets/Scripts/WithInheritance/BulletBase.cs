@@ -5,13 +5,13 @@ using UnityEngine;
 public class BulletBase : PhysicsEntity {
 
     [SerializeField]
-    private float TimeToLive = 1.0f;
+    protected float TimeToLive = 1.0f;
 
     public float Speed = 10.0f;
 
     // Use this for initialization
     override protected void Start() {
         base.Start();   //We call the base class start to start itself up
-        Destroy(gameObject,TimeToLive);
+        if(TimeToLive>0)    Destroy(gameObject,TimeToLive);
     }
 }

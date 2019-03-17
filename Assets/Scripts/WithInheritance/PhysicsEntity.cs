@@ -13,6 +13,8 @@ public abstract class PhysicsEntity : MonoBehaviour {
 
     private float mMaxSpeed = 5.0f; //Internal max Speed Value
 
+    public bool mHasWarped;
+
     public Vector2 Velocity {
         get {
             return mVelocity;
@@ -62,6 +64,7 @@ public abstract class PhysicsEntity : MonoBehaviour {
         mSR = GetComponent<SpriteRenderer>(); //Get SpriteRenderer
         Debug.Assert(mColliders.Length > 0 && mSR != null, "Error: Required Components missing");
         mTimer = 0; //Reset timer
+        mHasWarped = false;
     }
 
     private void Update() {  //Move using PhysicsEntity basic Physics
@@ -79,14 +82,18 @@ public abstract class PhysicsEntity : MonoBehaviour {
 
         if (transform.position.y > tHeight) {
             transform.position -= Vector3.up * 2 * tHeight;   //Offset to other side of screen
+            mHasWarped = true;
         } else if (transform.position.y < -tHeight) {
             transform.position -= Vector3.down * 2 * tHeight;
+            mHasWarped = true;
         }
 
         if (transform.position.x > tWidth) {
             transform.position -= Vector3.right * 2 * tWidth;
+            mHasWarped = true;
         } else if (transform.position.x < -tWidth) {
             transform.position -= Vector3.left * 2 * tWidth;
+            mHasWarped = true;
         }
     } //Almost the same as last week
 
