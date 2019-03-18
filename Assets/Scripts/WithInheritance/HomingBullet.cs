@@ -21,7 +21,7 @@ public class HomingBullet : BulletBase {
                 Velocity = (mTarget.transform.position - transform.position).normalized * Speed;
                 mSR.color = Color.red;
             } else {
-                if(mHasWarped) { //With till we warp until position update
+                if(mHasWarped) { //Wait till we warp until position update
                     tPhyEnt.mHasWarped = false;
                     mHasWarped = false;
                 }
@@ -39,4 +39,5 @@ public class HomingBullet : BulletBase {
             }
         }
     }
+
 }

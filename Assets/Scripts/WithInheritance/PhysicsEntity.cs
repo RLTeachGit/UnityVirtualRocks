@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))] //Make sure we have at least a collider
 [RequireComponent(typeof(SpriteRenderer))] //And Sprite Renderer
 public abstract class PhysicsEntity : MonoBehaviour {
-    protected Rigidbody2D mRB; //Protected means children can see this
-    protected Collider2D[] mColliders; //Can also be seen by children
+    private Rigidbody2D mRB; //Protected means children can see this
+    private Collider2D[] mColliders; //Can also be seen by children
     protected SpriteRenderer mSR; //Cached SpriteRenderer
     private Vector2 mVelocity = Vector2.zero;   //Internal Velocity variable
 

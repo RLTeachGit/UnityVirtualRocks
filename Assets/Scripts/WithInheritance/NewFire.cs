@@ -17,7 +17,7 @@ public class NewFire : MonoBehaviour {
     public void DoFire() {
         Vector2 tFireDirection = transform.up; //Take fire position rotation as fire angle
 
-        GameObject mBulletGO = Instantiate(GM.singleton.BulletPrefab, transform.position, Quaternion.identity);
+        GameObject mBulletGO = Instantiate(GM.singleton.SplittingBullet, transform.position, Quaternion.identity);
         Debug.Assert(mBulletGO != null, "Could not create Bullet from prefab");
 
         PhysicsEntity tPhysicsEntity = mBulletGO.GetComponent<PhysicsEntity>(); //Fake Physics for Bullet

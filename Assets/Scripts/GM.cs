@@ -18,7 +18,11 @@ public class GM : MonoBehaviour {
 
     public  GameObject[] RockPrefab; //Link to Rock prefabs
 
-    public  GameObject BulletPrefab; //Link to Bullet prefab
+    public  GameObject BasicBullet; //Link to Bullet prefab
+
+    public GameObject HomingBullet; //Link to Bullet prefab
+
+    public GameObject SplittingBullet; //Link to Bullet prefab
 
     GameObject mPlayer; //Keep link to player
 
