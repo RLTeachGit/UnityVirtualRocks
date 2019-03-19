@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour {
-    [SerializeField]
-    Image GreenBar; //Link in IDE
+    public    Image GreenBar; //Link in IDE
 
     int mHealth=0;
     public  int Health {

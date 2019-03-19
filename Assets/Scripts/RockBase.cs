@@ -20,6 +20,7 @@ public abstract class RockBase : PhysicsEntity {
         mRockCount++;   //When new rock comes into existance
     }
 
+
     override protected void Start() {
         base.Start();   //We call the base class start to start itself up
         Velocity = GM.RandomDirection() * 5.0f;

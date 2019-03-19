@@ -7,12 +7,13 @@ public class SmallRock : RockBase {
         if (vOtherPhysicsEntity is BulletBase) {
             Destroy(vOtherPhysicsEntity.gameObject);    //Also kill bullet
             DoExplosion();
-            GM.singleton.MyScore += 300;
+            GM.singleton.BulletsHit++;
+            GM.singleton.PlayerScore += GM.singleton.SmallRockScore;
         } else if (vOtherPhysicsEntity is PlayerShip) { //Now much easier to check what we hit
             PlayerShip tPlayer = (PlayerShip)vOtherPhysicsEntity; //Safe to cast as we know is a Playership
-            tPlayer.mHealthbar.Health -= 10;
-            GM.singleton.MyScore += 10;
             DoExplosion();
+            GM.singleton.PlayerScore += GM.singleton.SmallRockScore;
+            tPlayer.TakeDamage(GM.singleton.SmallRockDamage);
         }
     }
 }

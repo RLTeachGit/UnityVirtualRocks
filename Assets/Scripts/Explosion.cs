@@ -8,7 +8,7 @@ public class Explosion : MonoBehaviour {
     AudioSource mAudioSource;   //Cached Reference to AudioSource
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
         mParticleSystem = GetComponent<ParticleSystem>();   //Get Reference to ParticleSystem
         Debug.Assert(mParticleSystem != null, "No ParticleSystem component");
@@ -17,13 +17,16 @@ public class Explosion : MonoBehaviour {
         Debug.Assert(mAudioSource != null, "No AudioSource component");
     }
 
-    public  void    Explode() {
-        mParticleSystem.Play();
-        mAudioSource.Play();
+    public void Explode() {
+        mParticleSystem.Play(); //Show Explosion
+        mAudioSource.Play(); //Sound
+        StartCoroutine(CheckEndOfPlay());
     }
 
-    void OnDestroy() {
-        Debug.Log("{0} Destroyed");
-        Destroy(transform.root.gameObject); //Destroy parent as well
+    IEnumerator CheckEndOfPlay() {
+        while (mParticleSystem.isPlaying || mAudioSource.isPlaying) {
+            yield return new WaitForSeconds(0.1f);
+        }
+        Destroy(transform.root.gameObject);
     }
 }

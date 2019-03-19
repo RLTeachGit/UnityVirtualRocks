@@ -10,14 +10,15 @@ public class BigRock : RockBase {
             DoExplosion();
             Instantiate(GM.singleton.RockPrefab[1], transform.position, Quaternion.identity); //Make 2 medium rocks
             Instantiate(GM.singleton.RockPrefab[1], transform.position, Quaternion.identity); //Make 2 medium rocks
-            GM.singleton.MyScore += 100;
+            GM.singleton.BulletsHit++;
+            GM.singleton.PlayerScore += GM.singleton.BigRockScore;
         } else if (vOtherPhysicsEntity is PlayerShip) { //Now much easier to check what we hit
             PlayerShip tPlayer = (PlayerShip)vOtherPhysicsEntity; //Safe to cast as we know is a Playership
-            tPlayer.mHealthbar.Health -= 10;
-            GM.singleton.MyScore += 10;
-            Instantiate(GM.singleton.RockPrefab[1], transform.position, Quaternion.identity); //Make 2 medium rocks
-            Instantiate(GM.singleton.RockPrefab[1], transform.position, Quaternion.identity); //Make 2 medium rocks
             DoExplosion();
+            Instantiate(GM.singleton.RockPrefab[1], transform.position, Quaternion.identity); //Make 2 medium rocks
+            Instantiate(GM.singleton.RockPrefab[1], transform.position, Quaternion.identity); //Make 2 medium rocks
+            GM.singleton.PlayerScore += GM.singleton.BigRockScore;
+            tPlayer.TakeDamage(GM.singleton.BigRockDamage);
         }
     }
 }
